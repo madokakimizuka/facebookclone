@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy], except: :index
 
   def index
     @pictures = Picture.all
@@ -41,6 +41,11 @@ class PicturesController < ApplicationController
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @picture = current_user.pictures.build(picture_params)
+    render :new if @picture.invalid?
   end
 
   def destroy

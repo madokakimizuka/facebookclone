@@ -11,9 +11,10 @@ class UsersController < ApplicationController
       render 'new'
     end
 
-    def show
-      @user = User.find(params[:id])
-    end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
