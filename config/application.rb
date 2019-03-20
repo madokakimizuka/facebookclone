@@ -17,6 +17,7 @@ module FbCloneWork
     # タイムゾーンの設定を日本に変更
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+    config.assets.initialize_on_precompile = false
 
   end
 end
