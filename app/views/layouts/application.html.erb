@@ -14,24 +14,32 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
+      <nav class="menu">
+        <ul class="row"> -->
+        <%# if logged_in? %>
+          <!-- <li class="col-xs-3"><%#= link_to "Profile", user_path(current_user.id), class: "head" %></li> -->
+          <!-- <li class="col-xs-3"><%#= link_to "Logout", session_path(current_user.id), method: :delete, class: "head" %></li> -->
+        <%# else %>
+          <!-- <li class="col-xs-3"><%#= link_to "Sign up", new_user_path, class: "head" %></li> -->
+          <!-- <li class="col-xs-3"><%#= link_to "Login", new_session_path, class: "head" %></li> -->
+        <%# end %>
+        <!-- </ul>
+      </nav> -->
+
+
+
       <% if logged_in? %>
-      <nav class="menu">
-        <ul class="row">
-          <li class="col-xs-3"><%= link_to "Profile", user_path(current_user.id), class: "head" %></li>
-          <li class="col-xs-3"><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "head" %></li>
-        </ul>
-      </nav>
-      <% else %>
-      <nav class="menu">
-        <ul class="row">
-          <li class="col-xs-3"><%= link_to "Sign up", new_user_path, class: "head" %></li>
-          <li class="col-xs-3"><%= link_to "Login", new_session_path, class: "head" %></li>
-        </ul>
-      </nav>
-    <% end %>
+         <%= link_to "Profile", user_path(current_user.id) %>
+         <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+       <% else %>
+         <%= link_to "Sign up", new_user_path %>
+         <%= link_to "Login", new_session_path %>
+       <% end %>
+
+
 
     <%= yield %>
-    </div>
+    <!-- </div> -->
   </body>
 </html>
