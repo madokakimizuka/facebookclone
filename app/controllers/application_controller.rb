@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def user_logged_in?
     if logged_in?
     else
-      flash[:referer] = request.fullpath
+      flash[:referer] = 'ログインしてください'
       redirect_to new_session_path
     end
   end
