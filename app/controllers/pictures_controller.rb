@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,6 +47,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.build(picture_params)
+    binding.pry
     render :new if @picture.invalid?
   end
 
@@ -66,5 +68,4 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:title, :content, :image, :image_cache, :user_id)
   end
-
 end
