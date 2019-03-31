@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :user_logged_in?
+  skip_before_action :user_logged_in?, except: [:show]
   def new
     @user = User.new
   end
